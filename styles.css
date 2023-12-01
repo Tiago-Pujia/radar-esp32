@@ -1,0 +1,126 @@
+.radar {
+    width: 300px;
+    border-radius: 150px 150px 0 0;
+    position: relative;
+}
+
+.radar .giro {
+    margin: 0 auto;
+    background-color: #4cd137;
+    transform-origin: bottom center;
+    position: relative;
+    z-index: 1;
+}
+
+.radar .fondo {
+    background-color: #28a745;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.radar .movimiento {
+    background-color: #dc3545;
+}
+
+/* ELEMENTOS FLEXIBLES */
+.radar .giro,
+.radar .fondo {
+    width: 3px;
+}
+
+.radar,
+.radar .giro,
+.radar .fondo {
+    height: 150px;
+}
+
+.main .col:nth-child(1) {
+    grid-area: radar;
+}
+.main .col:nth-child(2) {
+    grid-area: controles;
+    border-top: 1px #6c757d solid;
+    padding: 16px;
+}
+.main .col:nth-child(3) {
+    grid-area: movimientos;
+    border-top: 1px #6c757d solid;
+    padding: 16px;
+}
+
+.main {
+    display: grid;
+}
+
+.main {
+    grid-template-areas:
+        "radar"
+        "controles"
+        "movimientos";
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+}
+
+@media screen and (min-width: 576px) {
+    header {
+        margin-bottom: 25px;
+    }
+
+    .radar {
+        width: 400px;
+        border-radius: 200px 200px 0 0;
+    }
+
+    .radar .giro,
+    .radar .fondo {
+        width: 4px;
+    }
+
+    .radar,
+    .radar .giro,
+    .radar .fondo {
+        height: 200px;
+    }
+}
+/* 
+@media screen and (min-width: 768px) {
+} 
+*/
+@media screen and (min-width: 992px) {
+    .main .col:nth-child(2),
+    .main .col:nth-child(3) {
+        border: none;
+        border-left: 2px #6c757d solid;
+        margin-left: 30px;
+    }
+    .main {
+        grid-template-areas:
+            "radar controles"
+            "radar movimientos";
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .radar {
+        width: 450px;
+        border-radius: 225px 225px 0 0;
+    }
+
+    .radar .giro,
+    .radar .fondo {
+        width: 4.5px;
+    }
+
+    .radar,
+    .radar .giro,
+    .radar .fondo {
+        height: 225px;
+    }
+}
+/*
+@media screen and (min-width: 1200px) {
+}
+*/
