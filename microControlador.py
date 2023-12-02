@@ -1,10 +1,5 @@
-"""
-TIAGO PUJIA 45.614.262
-TAIEL EZEQUIEL ROJAS 46.183.434
-KEVIN VEGA 45.809.150
-"""
 import machine, time, network
-from hscr04 import HCSR04
+from hcsr04 import HCSR04
 from umqtt.simple import MQTTClient
 from machine import Pin, PWM, Timer
 
@@ -29,10 +24,10 @@ distancia_inicial = []
 # MQTT
 mqtt_server = "io.adafruit.com"
 port=1883
-topic_1 = "tiagopujia/feeds/radar-slash-recibo-del-esp"
-topic_2 = "tiagopujia/feeds/radar-slash-envio-al-esp"
-user = 'tiagopujia'
-password = 'aio_XEsU52K93yYgBKZvyEGNA7P9R9Bw'
+topic_1 = "/feeds/radar-slash-recibo-del-esp"
+topic_2 = "/feeds/radar-slash-envio-al-esp"
+user = ''
+password = ''
 client_id = 'ESP32'
 clientMQTT = MQTTClient(client_id,mqtt_server,user=user,password=password,port=int(port))
 
@@ -40,8 +35,8 @@ clientMQTT = MQTTClient(client_id,mqtt_server,user=user,password=password,port=i
 # FUNCIONES PREDETERMINADAS
 # ===========================
 def conectarse_wifi():
-    ssid = "Fibertel WiFi444 2.4GHz"
-    password = "00427182700"
+    ssid = ""
+    password = ""
     
     sta_if = network.WLAN(network.STA_IF)
     sta_if.active(True)

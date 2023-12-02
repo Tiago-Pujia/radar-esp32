@@ -63,10 +63,10 @@ class Radar {
 class Comunicacion_Radar {
     url = "io.adafruit.com";
     puerto = "443";
-    topico_recibo = "tiagopujia/feeds/radar-slash-recibo-del-esp";
-    topico_envio = "tiagopujia/feeds/radar-slash-envio-al-esp";
-    usuario = "tiagopujia";
-    password = "aio_XEsU52K93yYgBKZvyEGNA7P9R9Bw";
+    topico_recibo = "/feeds/radar-slash-recibo-del-esp";
+    topico_envio = "/feeds/radar-slash-envio-al-esp";
+    usuario = "";
+    password = "";
     client_id = "API_Darshboard";
     MQTT = "";
 
@@ -95,61 +95,6 @@ class Comunicacion_Radar {
         this.MQTT.publish(this.topico_envio, msg);
     }
 }
-
-/*
-class Comunicacion_Radar {
-    apiUrl = "https://io.adafruit.com/api/v2/tiagopujia/feeds/";
-    key = "aio_XEsU52K93yYgBKZvyEGNA7P9R9Bw";
-    topic_1 = "radar-slash-envio-al-esp";
-    topic_2 = "radar-slash-recibo-del-esp";
-
-    constructor(){
-        //this.actualizar_mensaje()
-        this.recibir_mensaje()
-    }
-
-    async recibir_mensaje() {
-        const url = this.apiUrl + this.topic_2 + "/data";
-        const requestOptions = {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                "x-aio-key": this.key,
-            },
-        };
-
-        const response = await fetch(url, requestOptions);
-        let msg = await response.json();
-            msg = msg[0]
-
-        return msg;
-    }
-
-    publicar_mensaje(msg) {
-        const url = this.apiUrl + this.topic_1 + "/data";
-        const requestOptions = {
-            method: "POST",
-            headers: {
-                "x-aio-key": this.key,
-                "Content-Type": "application/x-www-form-urlencoded",
-            },
-            body: `value=${msg}`,
-        };
-
-        fetch(url, requestOptions)
-            .then((response) => response.json())
-            .then(console.log);
-    }
-
-    actualizar_mensaje(){
-        setInterval(() => {
-            this.recibir_mensaje()
-        }, 5000);
-    }
-
-    funcion_mensaje(msg) {}
-}
-*/
 
 // ============================
 // ETIQUETAS
